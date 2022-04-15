@@ -101,6 +101,7 @@ namespace AnalyzerSecond
                 newParamList.Add(parametr);
             }
             var newParam = SyntaxFactory.Parameter(SyntaxFactory.Identifier("outparam")).WithType(SyntaxFactory.IdentifierName(classDeclaration.Identifier.ValueText));
+            newParam = newParam.AddModifiers(SyntaxFactory.Token(SyntaxKind.OutKeyword));
             newParamList.Add(newParam);
             newMethod = newMethod.WithParameterList(SyntaxFactory.ParameterList(SyntaxFactory.SeparatedList<ParameterSyntax>(newParamList)));
             string s = "outparam = new ClassFor" + localDeclaration.Identifier.ValueText + "(";
